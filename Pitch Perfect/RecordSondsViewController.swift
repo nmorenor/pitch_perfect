@@ -25,12 +25,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        recordLabel.hidden = true;
-        stopButton.enabled = false;
-        stopButton.hidden = true;
-        pauseButton.enabled = false;
-        pauseButton.hidden = true;
-        tapToRecordLabel.hidden = false;
+        self.setInitialState();
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,13 +33,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func recordAudio(sender: UIButton) {
-        recordLabel.hidden = false;
-        tapToRecordLabel.hidden = true;
-        stopButton.hidden = false;
-        stopButton.enabled = true;
-        pauseButton.hidden = false;
-        pauseButton.enabled = true;
-        recordButton.enabled = false;
+        self.setRecordingState();
         
         let dirPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0];
         let currentDateTime = NSDate();
@@ -65,6 +54,26 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         self.audioRecorder.record();
     }
     
+    private func setInitialState() {
+        recordLabel.hidden = true;
+        stopButton.enabled = false;
+        stopButton.hidden = true;
+        pauseButton.enabled = false;
+        pauseButton.hidden = true;
+        tapToRecordLabel.hidden = false;
+        recordButton.enabled = true;
+    }
+    
+    private func setRecordingState () {
+        recordLabel.hidden = false;
+        tapToRecordLabel.hidden = true;
+        stopButton.hidden = false;
+        stopButton.enabled = true;
+        pauseButton.hidden = false;
+        pauseButton.enabled = true;
+        recordButton.enabled = false;
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "stopRecording") {
             let playSoundVC:PlaySoundsViewController = segue.destinationViewController as PlaySoundsViewController;
@@ -80,21 +89,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             self.performSegueWithIdentifier("stopRecording", sender: recordedAudio);
         } else {
             println("Recording audio was not successful");
-            recordLabel.hidden = true;
-            recordButton.enabled = true;
-            stopButton.enabled = false;
-            stopButton.hidden = true;
+            setInitialState()
         }
     }
     
     @IBAction func stopRecording(sender: UIButton) {
-        recordLabel.hidden = true;
-        tapToRecordLabel.hidden = false;
-        recordButton.enabled = true;
-        stopButton.enabled = false;
-        stopButton.hidden = true;
-        pauseButton.enabled = false;
-        pauseButton.hidden = true;
+        self.setInitialState();
         
         self.audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance();
