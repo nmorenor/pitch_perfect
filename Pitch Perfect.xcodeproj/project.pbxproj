@@ -18,6 +18,9 @@
 		668B68881AA7E6F600F767E4 /* Pitch_PerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668B68871AA7E6F600F767E4 /* Pitch_PerfectTests.swift */; };
 		669B21E71AB3B684007EAFC6 /* SoundEcho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669B21E61AB3B684007EAFC6 /* SoundEcho.swift */; };
 		669B21E91AB3BC8B007EAFC6 /* SoundReverb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669B21E81AB3BC8B007EAFC6 /* SoundReverb.swift */; };
+		66F55A9C1B8BE2AB005C2F49 /* RecordAudio.png in Resources */ = {isa = PBXBuildFile; fileRef = 66F55A9B1B8BE2AB005C2F49 /* RecordAudio.png */; };
+		66F55A9E1B8BE2B3005C2F49 /* AudioFilters.png in Resources */ = {isa = PBXBuildFile; fileRef = 66F55A9D1B8BE2B3005C2F49 /* AudioFilters.png */; };
+		66F55AA01B8BE4B6005C2F49 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 66F55A9F1B8BE4B6005C2F49 /* readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		668B68871AA7E6F600F767E4 /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
 		669B21E61AB3B684007EAFC6 /* SoundEcho.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEcho.swift; sourceTree = "<group>"; };
 		669B21E81AB3BC8B007EAFC6 /* SoundReverb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundReverb.swift; sourceTree = "<group>"; };
+		66F55A9B1B8BE2AB005C2F49 /* RecordAudio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordAudio.png; sourceTree = "<group>"; };
+		66F55A9D1B8BE2B3005C2F49 /* AudioFilters.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AudioFilters.png; sourceTree = "<group>"; };
+		66F55A9F1B8BE4B6005C2F49 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 		668B68631AA7E6F600F767E4 = {
 			isa = PBXGroup;
 			children = (
+				66F55A9F1B8BE4B6005C2F49 /* readme.md */,
 				668B686E1AA7E6F600F767E4 /* Pitch Perfect */,
 				668B68841AA7E6F600F767E4 /* Pitch PerfectTests */,
 				668B686D1AA7E6F600F767E4 /* Products */,
@@ -105,6 +112,8 @@
 		668B686F1AA7E6F600F767E4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				66F55A9D1B8BE2B3005C2F49 /* AudioFilters.png */,
+				66F55A9B1B8BE2AB005C2F49 /* RecordAudio.png */,
 				668B68701AA7E6F600F767E4 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -207,7 +216,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F55A9C1B8BE2AB005C2F49 /* RecordAudio.png in Resources */,
 				668B68771AA7E6F600F767E4 /* Main.storyboard in Resources */,
+				66F55A9E1B8BE2B3005C2F49 /* AudioFilters.png in Resources */,
 				668B68791AA7E6F600F767E4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				663CA7651AB129CF0058871B /* SoundPitch.swift in Sources */,
+				66F55AA01B8BE4B6005C2F49 /* readme.md in Sources */,
 				663277C31AAE840F00195349 /* SpeedSound.swift in Sources */,
 				663CA7631AB11A820058871B /* RecordAudio.swift in Sources */,
 				669B21E91AB3BC8B007EAFC6 /* SoundReverb.swift in Sources */,
