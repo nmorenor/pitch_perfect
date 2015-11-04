@@ -31,7 +31,7 @@ class SoundPitch: NSObject {
     
     func initEffect() {
         audioEngine = AVAudioEngine()
-        audioFile = AVAudioFile(forReading: self.filePath, error: nil)
+        audioFile = try? AVAudioFile(forReading: self.filePath!)
     }
     
     func setEffect(soundEffect toEffect:NSNumber!) {
@@ -91,7 +91,10 @@ class SoundPitch: NSObject {
             audioPlayerNode.stop()
         } else {
             audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-            audioEngine.startAndReturnError(nil)
+            do {
+                try audioEngine.start()
+            } catch _ {
+            }
             audioPlayerNode.play()
         }
     }

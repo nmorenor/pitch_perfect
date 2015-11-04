@@ -27,14 +27,8 @@ class SpeedSound: NSObject {
     }
     
     func readFileIntoAvPlayer() {
-        var error:NSError?;
-        self.player = AVAudioPlayer(contentsOfURL: self.filePath, error: &error)!;
+        self.player = try! AVAudioPlayer(contentsOfURL: self.filePath!);
         
-        if player == nil {
-            if let e = error {
-                println(e.localizedDescription);
-            }
-        }
         
         player.prepareToPlay();
         player.volume = 1.0
