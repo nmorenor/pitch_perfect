@@ -42,13 +42,14 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let recordingName:String = formatter.stringFromDate(currentDateTime) + ".wav";
         let pathArray:[String] = [dirPath, recordingName];
         let filePath = NSURL.fileURLWithPathComponents(pathArray);
-        print(filePath);
+        Swift.print(filePath);
         
         let session = AVAudioSession.sharedInstance();
         do {
             try session.setCategory(AVAudioSessionCategoryPlayback)
-        } catch _ {
-        };
+        } catch {
+            Swift.print(error)
+        }
         
         self.audioRecorder = try? AVAudioRecorder(URL: filePath!, settings: [String : AnyObject]());
         self.audioRecorder.delegate = self;
@@ -91,7 +92,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
             self.performSegueWithIdentifier("stopRecording", sender: recordedAudio);
         } else {
-            print("Recording audio was not successful");
+            Swift.print("Recording audio was not successful");
             setInitialState()
         }
     }
@@ -103,8 +104,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let audioSession = AVAudioSession.sharedInstance();
         do {
             try audioSession.setActive(false)
-        } catch _ {
-        };
+        } catch {
+            Swift.print(error)
+        }
     }
     
     @IBAction func puaseRecording(sender: UIButton) {
